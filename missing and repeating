@@ -1,0 +1,22 @@
+class Solve {
+    int[] findTwoElement(int arr[], int n) {
+        // code here
+        Map<Integer, Integer> hm = new HashMap<>();
+        for(int x: arr){
+            if(hm.containsKey(i))
+                hm.put(x,mp.get(x)+1);
+            else
+                hm.put(x,1);
+        }
+        int res[] = new int[2];
+        for(int i=1; i<=n; i++){
+            if(hm.containsKey(i)){
+                if(hm.get(i)>1)
+                    res[0]=i;
+            }
+            else
+                res[1]=i;
+        }
+        return res;
+    }
+}
