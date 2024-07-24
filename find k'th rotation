@@ -1,0 +1,7 @@
+class Solution {
+    public int findKRotation(List<Integer> arr) {
+        // Code here
+         int i=Collections.min(arr);
+        return arr.indexOf(i);
+    }
+}
