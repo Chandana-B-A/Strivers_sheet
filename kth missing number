@@ -1,0 +1,14 @@
+public class Solution {
+    public static int missingK(int[] vec, int n, int k) {
+        // Write your code here.
+        int l=0, h= n-1;
+        while(l<=h){
+            int m=(l+h)/2, miss=vec[m]-(m+1);
+            if(miss<k)
+                l=m+1;
+            else
+                h=m-1;
+        }
+        return h+k+1;
+    }
+}
