@@ -1,0 +1,29 @@
+
+import java.util.Arrays;
+public class Solution {
+    public static int aggressiveCows(int []stalls, int k) {
+        //    Write your code here.
+        int n = stalls.length;
+        Arrays.sort(stalls);
+        int min=stalls[0], max=stalls[n-1];
+        for(int j=1; j<=max-min+1;j++){
+            if(place(stalls,k,j,n)) continue;
+            else return j-1;
+        }
+        return -1;
+    }
+
+    public static boolean place(int stall[], int cow, int i, int x){
+        int first=0, sec=1, cnt=1;
+        while(sec<x){
+            if((stall[sec]-stall[first])>=i){
+                cnt++;
+                if(cnt==cow) return true;
+                first=sec;
+                sec++;
+            }
+            else sec++;
+        }
+        return false;
+    }
+}
