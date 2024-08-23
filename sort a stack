@@ -1,0 +1,21 @@
+class GfG {
+   public void operation(Stack<Integer> s, int data){
+        if (s.isEmpty() || s.peek() < data) {
+            s.push(data);
+            return;
+        }
+        int top = s.pop();
+        operation(s, data);
+        s.push(top);
+    }
+    public Stack<Integer> sort(Stack<Integer> s) {
+        // add code here.
+        if(s.isEmpty()){
+            return s;
+        }
+        int top = s.pop();
+        sort(s);
+        operation(s,top);
+        return s;
+    }
+}
