@@ -1,0 +1,21 @@
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        if(s.isEmpty()) return ;
+        int top = s.pop();
+        reverse(s);
+        rev(s,top);
+        
+    }
+    static void rev(Stack<Integer> s, int top){
+        if(s.isEmpty()){
+            s.push(top);
+            return;
+        }
+        int top1=s.pop();
+        rev(s,top);
+        s.push(top1);
+    }
+}
