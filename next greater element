@@ -1,0 +1,32 @@
+
+
+class Solution {
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        // Map to store the next greater element for each number in nums2
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // Stack to keep track of the elements for which we need to find the next greater element
+        Stack<Integer> stack = new Stack<>();
+
+        // Traverse through nums2 to fill in the map
+        for (int num : nums2) {
+            // While stack is not empty and the current number is greater than the top element of the stack
+            while (!stack.isEmpty() && num > stack.peek()) {
+                map.put(stack.pop(), num); // Pop the element and record the next greater element in the map
+            }
+            stack.push(num); // Push the current number onto the stack
+        }
+
+        // For elements that do not have a next greater element, set them to -1
+        while (!stack.isEmpty()) {
+            map.put(stack.pop(), -1);
+        }
+
+        // Prepare the result array for nums1 based on the previously computed map
+        int[] res = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            res[i] = map.get(nums1[i]);
+        }
+
+        return res;
+    }
+}
