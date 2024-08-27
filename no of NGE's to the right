@@ -1,0 +1,11 @@
+class Solution {
+  public static int[] count_NGEs(int N, int arr[], int queries, int indices[]) {
+    // code here
+    int ans[] = new int[queries];
+    for(int i=0; i<queries; i++){
+        for(int j=indices[i]+1; j<N; j++)
+            ans[i] = (arr[j] > arr[indices[i]]) ? ans[i]+1 : ans[i];
+    }
+    return ans;
+  }
+}
