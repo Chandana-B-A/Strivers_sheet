@@ -1,0 +1,17 @@
+class Solution{
+    public int minimumEnergy(int arr[],int n){
+        //code here
+        int[] dp = new int[n];
+        Arrays.fill(dp,-1);
+        return solve(arr,dp,n-1);
+    }
+    public int solve(int arr[], int dp[], int idx){
+        if(idx == 0) return 0;
+        int right = Integer.MAX_VALUE;
+        int left = solve(arr, dp, idx-1) + Math.abs(arr[idx]-arr[idx-1]);
+        if(idx>1)
+            right = solve(arr, dp, idx-2) + Math.abs(arr[idx]-arr[idx-2]);
+        
+        return Math.min(left, right);
+    }
+}
