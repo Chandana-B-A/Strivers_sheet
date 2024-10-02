@@ -1,0 +1,10 @@
+class Solution {
+    static String oddEven(int n) {
+        // code here
+        String str = Integer.toBinaryString(n);
+        int len = str.length();
+        if(str.charAt(len - 1) == '1')
+            return "odd";
+        return "even";
+    }
+}
